@@ -54,6 +54,21 @@ class Node {
        }
       return found;
     }
+    
+    BFS() {
+      var queue = [];
+      var visisted = [];
+      var current = this.root;
+      queue.push(current);
+      while (queue.length) {
+        current = queue.shift();
+        visisted.push(current.value);
+        if (current.left) queue.push(current.left);
+        if (current.right) queue.push(current.right);
+        
+      } 
+      return visisted;
+    }
   }
   
   var tree = new BST();
@@ -61,4 +76,5 @@ class Node {
   console.log(tree.insert(7));
   console.log(tree.insert(20));
   console.log(tree.search(7));
+  console.log(tree.BFS())
   
