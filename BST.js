@@ -69,12 +69,69 @@ class Node {
       } 
       return visisted;
     }
+    
+    preOrderDFS() {
+      var current = this.root;
+      console.log(current.value);
+      var data = [];
+      
+      function traverse(node) {
+          data.push(node.value);
+          if (node.left)  traverse(node.left);
+          if (node.right)  traverse(node.right);
+        
+      }
+      traverse(this.root);
+      return data;
+    }
+    
+    postOrderDFS() {
+      var current = this.root;
+      console.log(current.value);
+      var data = [];
+      
+      function traverse(node) {
+          
+          if (node.left)  traverse(node.left);
+          if (node.right)  traverse(node.right);
+          data.push(node.value);
+        
+      }
+      
+      traverse(this.root);
+      return data;
+    }
+    
+    inOrderDFS() {
+      var current = this.root;
+      console.log(current.value);
+      var data = [];
+      
+      function traverse(node) {
+          
+          if (node.left)  traverse(node.left);
+          data.push(node.value);
+          if (node.right)  traverse(node.right);
+          
+        
+      }
+      
+      traverse(this.root);
+      return data;
+    }
   }
   
   var tree = new BST();
   console.log(tree.insert(10));
   console.log(tree.insert(7));
   console.log(tree.insert(20));
+ console.log(tree.insert(12));
+ console.log(tree.insert(15));
+ console.log(tree.insert(2));
+ console.log(tree.insert(50));
   console.log(tree.search(7));
   console.log(tree.BFS())
+  console.log(tree.preOrderDFS());
+console.log(tree.postOrderDFS());
+console.log(tree.inOrderDFS());
   
